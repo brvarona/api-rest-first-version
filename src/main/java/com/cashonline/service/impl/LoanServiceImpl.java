@@ -26,7 +26,7 @@ import com.cashonline.service.LoanService;
 @Service
 public class LoanServiceImpl implements LoanService {
 
-	private Logger LOG = LoggerFactory.getLogger(LoanServiceImpl.class);
+	private Logger log = LoggerFactory.getLogger(LoanServiceImpl.class);
 
     private LoanRepository loanRepository;
     private UserRepository userRepository;
@@ -43,7 +43,7 @@ public class LoanServiceImpl implements LoanService {
 
 	    
 	/**
-     * Gets loans by user id.
+     * Get loans by user id.
      *
      * @param paging with page and size 
      * @param userId the user id
@@ -52,7 +52,7 @@ public class LoanServiceImpl implements LoanService {
 	 * @throws ResourceNotFoundException 
      */
 	public List<Loan> getLoans(Pageable paging, Long userId) throws ResourceNotFoundException {
-        LOG.info("Getting the loans with user id:" + userId);
+		log.info("Getting the loans with user id:" + userId);
         Page<Loan> pagedResult = null;
 
 		if (userId != null) {     

@@ -32,9 +32,9 @@ public class LoanRestController {
 	/**
      * Get loans by user id.
      *
-     * @param id the user id
      * @param paging with page and size 
-
+     * @param id the user id
+     *
      * @return response that contains a list of loans and paging results
 	 * @throws ResourceNotFoundException 
      */

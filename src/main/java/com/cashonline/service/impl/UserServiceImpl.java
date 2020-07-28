@@ -20,7 +20,7 @@ import com.cashonline.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private UserRepository userRepository;
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
      * @throws ResourceNotFoundException 
      */
     public User getUser(Long id) throws ResourceNotFoundException {
-    	logger.info("Getting the user with id:" + id);
+    	log.info("Getting the user with id:" + id);
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
     }
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
      * @return the user
      */
     public User saveUser(User user) {
-    	logger.info("Saving user...");
+    	log.info("Saving user...");
         User userToSave = userRepository.save(user);
         return userToSave;        
     }
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
      * @throws Exception the exception
      */
     public void deleteUser(Long id) throws ResourceNotFoundException {        
-    	logger.info("Deleting user with id" + id);
+    	log.info("Deleting user with id" + id);
         User user = userRepository.findById(id)
         	.orElseThrow(() -> new ResourceNotFoundException("User", "id", id));            
         userRepository.delete(user);

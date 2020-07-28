@@ -20,7 +20,9 @@ public class ResourceNotFoundException extends Exception {
     /**
      * Instantiates a new Resource not found exception.
      *
-     * @param message the message
+     * @param resourceName the resource that not found
+     * @param fieldName
+     * @param fieldValue
      */
     
     public ResourceNotFoundException(String resourceName, String fieldName, Object fieldValue) {
