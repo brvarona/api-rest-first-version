@@ -1,5 +1,7 @@
 package com.cashonline.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -26,29 +28,33 @@ import com.cashonline.service.UserService;
 @RestController
 public class UserRestController {
 
+    private Logger log = LoggerFactory.getLogger(UserRestController.class);
+
     @Autowired
     private UserService userService;
 
     /**
-     * Gets user by id.
+     * Get user by id.
      *
      * @param id the user id
      * @return the user
      */
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
-        User user =  userService.getUser(id);
+        log.info("GET - /users/" + id);
+    	User user =  userService.getUser(id);
         return new ResponseEntity<User>(user, new HttpHeaders(), HttpStatus.OK);
     }
 
     /**
-     * Create user user.
+     * Create user.
      *
      * @param user the user
      * @return the user
      */
     @PostMapping(path = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        log.info("POST - /users");
         User created = userService.saveUser(user);
         return new ResponseEntity<User>(created, new HttpHeaders(), HttpStatus.CREATED);
     }
@@ -57,11 +63,12 @@ public class UserRestController {
      * Delete user.
      *
      * @param id the user id
-     * @return the response
+     * @return response 
      * @throws ResourceNotFoundException 
      */
     @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
+        log.info("DELETE - /users/" + id);
     	userService.deleteUser(id);
         return ResponseEntity.ok().build();
     }
