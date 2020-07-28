@@ -1,0 +1,12 @@
+com\cashonline\service\impl\UserServiceImpl.class
+com\cashonline\entity\User.class
+com\cashonline\service\UserService.class
+com\cashonline\controller\LoanRestController.class
+com\cashonline\exception\ResourceNotFoundException.class
+com\cashonline\service\impl\LoanServiceImpl.class
+com\cashonline\entity\Loan.class
+com\cashonline\repository\LoanRepository.class
+com\cashonline\service\LoanService.class
+com\cashonline\controller\UserRestController.class
+com\cashonline\repository\UserRepository.class
+com\cashonline\RestApiApplication.class

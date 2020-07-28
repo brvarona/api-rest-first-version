@@ -1,0 +1,5 @@
+com\cashonline\restapi\ApplicationTests.class
+com\cashonline\restapi\data\UserRepositoryTest.class
+com\cashonline\restapi\controller\LoanControllerAPITest.class
+com\cashonline\restapi\controller\UserControllerAPITest.class
+com\cashonline\restapi\data\LoanRepositoryTest.class
