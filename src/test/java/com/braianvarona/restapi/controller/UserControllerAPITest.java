@@ -45,8 +45,6 @@ public class UserControllerAPITest {
 
 	String exampleUserJson = "{\"email\":\"juanperez@gmail.com\",\"firstName\":\"Juan\",\"lastName\":\"Perez\"}";
 
-
-
 	@Test
 	public void whenGetValidInput_thenReturns200() throws Exception {
 		mockUser.setId(100L);

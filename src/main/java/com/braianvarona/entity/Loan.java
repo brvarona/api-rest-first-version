@@ -19,6 +19,13 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+/**
+ * The persistent class for the loans database table.
+ * 
+ * @author Braian Varona
+ * 
+ */
+
 @Entity
 @Table(name = "LOANS")
 public class Loan implements Serializable {

@@ -39,6 +39,7 @@ public class UserRestController {
      *
      * @param id the user id
      * @return the user
+     * @throws ResourceNotFoundException 
      */
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable(name = "id") Long id) {

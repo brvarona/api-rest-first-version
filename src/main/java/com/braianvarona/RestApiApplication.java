@@ -33,7 +33,7 @@ public class RestApiApplication {
 	public CommandLineRunner setup(UserRepository userRepository, LoanRepository loanRepository) {
 		return (args) -> {
 			
-			log.info("Loading examples...");
+			log.info("Loading initial data...");
 			
 			User pepe = new User("pepe.argento@gmail.com","Pepe","Argento" );			
 			User moni = new User("moni_argento@gmail.com","Moni","Argento");			

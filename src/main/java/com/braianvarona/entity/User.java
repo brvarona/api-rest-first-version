@@ -7,9 +7,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the accion database table.
+ * The persistent class for the users database table.
+ * 
+ * @author Braian Varona
  * 
  */
+ 
 @Entity
 @Table(name = "USERS")
 

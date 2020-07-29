@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     /**
      * Store user in database.
      *
-     * @param user the user
+     * @param user 
      * @return the user
      */
     @Override
@@ -61,7 +61,6 @@ public class UserServiceImpl implements UserService {
      *
      * @param userId the user id
      * @throws ResourceNotFoundException 
-     * @throws Exception the exception
      */
     @Override
     public void deleteUser(Long id) {        
