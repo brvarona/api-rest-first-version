@@ -1,6 +1,7 @@
 # REST API with Spring Boot, H2, JPA and Hibernate 
 
-#This is a sample Java / Maven / Spring Boot (version 2.3.2) application that can be used as a starter for creating a microservice complete with built-in health check, metrics and much more. I hope it helps you.
+This is a sample Java / Maven / Spring Boot (version 2.3.2) application that can be used as a starter for creating an API Rest.
+
 
 ## How to Run 
 
@@ -9,7 +10,7 @@ This application is packaged as a jar which has Tomcat 8 embedded. No Tomcat or 
 * Clone this repository 
 * Make sure you are using JDK 1.8 and Maven 3.x
 * You can build the project and run the tests by running ```mvn clean package```
-* Once successfully built, you can run the service by one of these two methods:
+* Once successfully built, you can run the following:
 ```
         mvn spring-boot:run -Drun.arguments="spring.profiles.active=test"
 ```
