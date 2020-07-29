@@ -1,7 +1,6 @@
 package com.braianvarona.service;
 
 import com.braianvarona.entity.User;
-import com.braianvarona.exception.ResourceNotFoundException;
 
 /**
  * Interface UserService

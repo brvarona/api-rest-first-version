@@ -1,21 +1,20 @@
 # REST API with Spring Boot, H2, JPA and Hibernate 
 
-This is a sample Java / Maven / Spring Boot (version 2.3.2) application that can be used as a starter for creating an API Rest.
+This is a sample Java / Maven / Spring Boot (version 2.3.2) application that can be used as a starter for creating an API Rest with elementary CRUD operations.
 
 
 ## How to Run 
 
-This application is packaged as a jar which has Tomcat 8 embedded. No Tomcat or JBoss installation is necessary. You run it using the ```java -jar``` command.
 
 * Clone this repository 
 * Make sure you are using JDK 1.8 and Maven 3.x
-* You can build the project and run the tests by running ```mvn clean package```
-* Once successfully built, you can run the following:
+* You can run the following:
 ```
         mvn spring-boot:run -Drun.arguments="spring.profiles.active=test"
 ```
 
 The app will start running at <http://localhost:8080>.
+The H2 web ui at <http://localhost:8080/h2>.
 
 ## Explore Rest APIs
 
