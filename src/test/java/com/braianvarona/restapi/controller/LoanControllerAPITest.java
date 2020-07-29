@@ -8,15 +8,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.braianvarona.controller.LoanRestController;
-import com.braianvarona.entity.Loan;
+import com.braianvarona.dto.PageLoansDTO;
 import com.braianvarona.exception.ResourceNotFoundException;
 import com.braianvarona.service.impl.LoanServiceImpl;
 import com.braianvarona.service.impl.UserServiceImpl;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +48,7 @@ public class LoanControllerAPITest {
 
 	@Test
 	public void whenGetByValidInput_thenReturns200() throws Exception {
-		given(this.loanService.getLoans(PageRequest.of(0, 5), 1L)).willReturn(new ArrayList<Loan>());
+		given(this.loanService.getLoans(PageRequest.of(0, 5), 1L)).willReturn(new PageLoansDTO(null,null));
 
 		mockMvc.perform(get("/loans?page=0&size=5&user_id=1")
 			    .contentType("application/json"))

@@ -1,7 +1,7 @@
 package com.braianvarona.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.braianvarona.dto.PageLoansDTO;
 import com.braianvarona.entity.Loan;
 import com.braianvarona.exception.ResourceNotFoundException;
 import com.braianvarona.repository.LoanRepository;
@@ -48,11 +49,11 @@ public class LoanServiceImpl implements LoanService {
      * @param paging with page and size 
      * @param userId the user id
 
-     * @return the list of loans
+     * @return PageLoansDTO the page of loans
 	 * @throws ResourceNotFoundException 
      */
     @Override
-	public List<Loan> getLoans(Pageable paging, Long userId) {
+	public PageLoansDTO getLoans(Pageable paging, Long userId) {
 		log.info("Getting the loans with user id:" + userId);
         Page<Loan> pagedResult = null;
 
@@ -61,12 +62,14 @@ public class LoanServiceImpl implements LoanService {
 			pagedResult = loanRepository.findByUserId(userId, paging);
 		} else
 			pagedResult = loanRepository.findAll(paging);
-
-        if(pagedResult.hasContent()) {
-            return pagedResult.getContent();
-        } else {
-            return new ArrayList<Loan>();
-        }
+		
+		Map<String, Integer> pagingProperties = new HashMap<String, Integer>();
+		pagingProperties.put("page", pagedResult.getNumber());
+		pagingProperties.put("size", pagedResult.getSize());
+		pagingProperties.put("total", pagedResult.getTotalPages());
+		
+		PageLoansDTO out = new PageLoansDTO(pagedResult.getContent(), pagingProperties);	
+		return out;
 	}
 
 }

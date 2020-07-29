@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Braian Varona
  *
  */
-
 @SpringBootTest
 class ApplicationTests {
 

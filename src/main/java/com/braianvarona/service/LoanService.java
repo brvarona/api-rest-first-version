@@ -1,9 +1,9 @@
 package com.braianvarona.service;
 
-import java.util.List;
+
 import org.springframework.data.domain.Pageable;
 
-import com.braianvarona.entity.Loan;
+import com.braianvarona.dto.PageLoansDTO;
 
 /**
  * Interface LoanService
@@ -14,6 +14,6 @@ import com.braianvarona.entity.Loan;
 
 public interface LoanService {
 
-	public List<Loan> getLoans(Pageable paging, Long userId);
+	public PageLoansDTO getLoans(Pageable paging, Long userId);
 
 }

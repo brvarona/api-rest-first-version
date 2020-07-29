@@ -1,11 +1,10 @@
 package com.braianvarona.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.braianvarona.entity.Loan;
+import com.braianvarona.dto.PageLoansDTO;
 import com.braianvarona.exception.ResourceNotFoundException;
 import com.braianvarona.service.LoanService;
 
@@ -38,14 +37,15 @@ public class LoanRestController {
      * @param paging with page and size 
      * @param id the user id
      *
-     * @return response that contains a list of loans and paging results
+     * @return response that contains a list of loans and paging statistics
 	 * @throws ResourceNotFoundException 
      */
 	@GetMapping("/loans")
-	public ResponseEntity<List<Loan>> getLoans(Pageable paging, @RequestParam(name = "user_id", required = false) Long userId) { 
-		log.info("GET - /loans?&page=" + paging.getPageNumber() + "&size=" + paging.getPageSize() + "userId=" + userId);
-		List<Loan> list = loanService.getLoans(paging, userId);		
-        return new ResponseEntity<List<Loan>>(list, new HttpHeaders(), HttpStatus.OK); 
+	public ResponseEntity<PageLoansDTO> getLoans(@RequestParam(name = "page") Integer page, @RequestParam(name = "size") Integer size, @RequestParam(name = "user_id", required = false) Long userId) { 
+		log.info("GET - /loans?&page=" + page + "&size=" + size + "userId=" + userId);
+		PageLoansDTO pageLoans = loanService.getLoans(PageRequest.of(page, size), userId);	
+			
+        return new ResponseEntity<PageLoansDTO>(pageLoans, new HttpHeaders(), HttpStatus.OK); 
     }
 
 }
